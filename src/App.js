@@ -5,11 +5,13 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import ScrollToTop from './hooks/ScrollToTop';
 
 function App() {
   return (
     <Suspense fallback='loading'>
       <Router>
+        <ScrollToTop />
         <Navigation />
         <div id='main'>
           <Routes>
