@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Navigation from './components/Navigation';
@@ -14,13 +14,13 @@ function App() {
         <ScrollToTop />
         <Navigation />
         <div id='main'>
-          <Routes>
+          <Switch>
             {/* Home */}
             <Route exact path='/' element={<Home />} />
 
             {/* 404 */}
             <Route path='*' element={<NoMatch />} />
-          </Routes>
+          </Switch>
         </div>
         <Footer />
       </Router>
