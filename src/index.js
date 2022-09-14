@@ -5,11 +5,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// i18n
+import { I18nextProvider } from 'react-i18next';
+import i18next from 'i18next';
+import common_de from './translations/de/common.json';
+import common_en from './translations/en/common.json';
+i18next.init({
+  interpolation: { escapeValue: false }, // React already does escaping
+  lng: 'de', // language to use
+  resources: {
+    de: {
+      common: common_de,
+    },
+    en: {
+      common: common_en,
+    },
+  },
+});
+
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
   <React.StrictMode>
-    <App />
+    <I18nextProvider i18n={i18next}>
+      <App />
+    </I18nextProvider>
   </React.StrictMode>
 );
 

@@ -7,9 +7,14 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './hooks/ScrollToTop';
 
+// i18n
+import { useTranslation } from 'react-i18next';
+
 function App() {
+  const { t } = useTranslation('common');
   return (
     <Suspense fallback='loading'>
+      <div>{t('foo')}</div>
       <Router>
         <ScrollToTop />
         <Navigation />
